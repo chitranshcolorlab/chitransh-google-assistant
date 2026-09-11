@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chitransh Google Assistant</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #202124;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #1a73e8;
+    }
+
+    .hero {
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero-box {
+      max-width: 800px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e8f0fe;
+      color: #1967d2;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: #1a73e8;
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: #5f6368;
+      line-height: 1.6;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .connect-btn {
+      margin-top: 32px;
+      padding: 15px 28px;
+      background: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .connect-btn:hover {
+      background: #1557b0;
+    }
+
+    .features {
+      max-width: 1100px;
+      margin: -30px auto 60px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 30px;
+      box-shadow: 0 5px 25px rgba(0,0,0,.06);
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #5f6368;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    @media(max-width: 750px) {
+      h1 {
+        font-size: 35px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 16px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    Chitransh <span>Google Assistant</span>
+  </div>
+
+  <div>Google Business Profile Manager</div>
+</header>
+
+<section class="hero">
+
+  <div class="hero-box">
+
+    <div class="badge">
+      ✨ Smart Google Business Management
+    </div>
+
+    <h1>
+      Manage Your Google Business
+      <span>Smarter with AI</span>
+    </h1>
+
+    <p>
+      Connect your Google Business Profile, manage customer reviews,
+      generate professional AI-powered replies and keep your business
+      profile active from one simple dashboard.
+    </p>
+
+    <button class="connect-btn" onclick="connectGoogle()">
+      Connect Google Business Profile
+    </button>
+
+  </div>
+
+</section>
+
+<section class="features">
+
+  <div class="card">
+    <div class="icon">⭐</div>
+    <h3>Google Reviews</h3>
+    <p>
+      View and manage your Google Business Profile customer reviews
+      from one dashboard.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="icon">✨</div>
+    <h3>AI Review Replies</h3>
+    <p>
+      Generate professional and personalized replies to customer
+      reviews with AI assistance.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="icon">📢</div>
+    <h3>Google Posts</h3>
+    <p>
+      Prepare business updates, offers and Google Business Profile
+      post content quickly.
+    </p>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Chitransh Google Assistant
+  <br>
+  Powered by Chitransh Color Lab & Studio
+</footer>
+
+<script>
+  function connectGoogle() {
+    alert("Google Business Profile connection will be activated after API access approval.");
+  }
+</script>
+
+</body>
+</html>
