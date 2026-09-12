@@ -427,7 +427,14 @@ document.addEventListener('DOMContentLoaded', function () {
     starFilter.addEventListener('change', filterReviews);
   }
 });
+ function generateAIReply() {
+  const replyBox = document.getElementById('aiReplyText');
+
+  replyBox.innerText =
+    "Thank you so much for your wonderful review! We truly appreciate your kind words and are delighted that you enjoyed your experience with us. We look forward to serving you again.";
+} 
   function postDemoReply() {
+   
   alert("Demo mode: Reply is ready. It will be posted to Google after API access is approved.");
 }
     </script>
