@@ -222,8 +222,39 @@
 
 <script>
   function connectGoogle() {
-    alert("Google Business Profile connection will be activated after API access approval.");
+  const startGoogleLogin = () => {
+    const tokenClient = google.accounts.oauth2.initTokenClient({
+      client_id: '755939430364-819ti0cmqbsa8386nuk416aqm3hrpnt5.apps.googleusercontent.com',
+      scope: 'https://www.googleapis.com/auth/business.manage',
+      callback: (response) => {
+        if (response.error) {
+          alert('Google connection failed: ' + response.error);
+          return;
+        }
+
+        console.log('Google OAuth connected successfully');
+        alert('Google Business Profile connected successfully!');
+      }
+    });
+
+    tokenClient.requestAccessToken({
+      prompt: 'consent'
+    });
+  };
+
+  if (window.google && google.accounts && google.accounts.oauth2) {
+    startGoogleLogin();
+    return;
   }
+
+  const script = document.createElement('script');
+  script.src = 'https://accounts.google.com/gsi/client';
+  script.async = true;
+  script.defer = true;
+  script.onload = startGoogleLogin;
+  script.onerror = () => alert('Google login library could not be loaded.');
+  document.head.appendChild(script);
+}
 </script>
 
 </body>
