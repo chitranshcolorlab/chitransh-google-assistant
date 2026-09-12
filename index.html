@@ -317,7 +317,7 @@
         </p>
       </div>
 
-      <button style="
+     <button onclick="postDemoReply()" style="
         margin-top:18px;
         background:#1a73e8;
         color:white;
@@ -428,8 +428,10 @@ document.addEventListener('DOMContentLoaded', function () {
     starFilter.addEventListener('change', filterReviews);
   }
 });
-  
-</script>
+  function postDemoReply() {
+  alert("Demo mode: Reply is ready. It will be posted to Google after API access is approved.");
+}
+    </script>
 
 </body>
 </html>
