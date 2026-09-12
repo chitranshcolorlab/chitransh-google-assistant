@@ -418,9 +418,14 @@ function filterReviews() {
 }
 document.addEventListener('DOMContentLoaded', function () {
   const searchInput = document.getElementById('reviewSearch');
+  const starFilter = document.getElementById('starFilter');
 
   if (searchInput) {
     searchInput.addEventListener('input', filterReviews);
+  }
+
+  if (starFilter) {
+    starFilter.addEventListener('change', filterReviews);
   }
 });
   
