@@ -241,7 +241,46 @@
         API Access Pending
       </div>
     </div>
+<div style="
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:20px 0;
+">
 
+  <input
+    type="text"
+    id="reviewSearch"
+    placeholder="Search reviews..."
+    style="
+      flex:1;
+      min-width:220px;
+      padding:12px 14px;
+      border:1px solid #dadce0;
+      border-radius:8px;
+      font-size:15px;
+    "
+  >
+
+  <select
+    id="starFilter"
+    style="
+      padding:12px 14px;
+      border:1px solid #dadce0;
+      border-radius:8px;
+      background:white;
+      font-size:15px;
+    "
+  >
+    <option value="all">All Ratings</option>
+    <option value="5">⭐⭐⭐⭐⭐ 5 Star</option>
+    <option value="4">⭐⭐⭐⭐ 4 Star</option>
+    <option value="3">⭐⭐⭐ 3 Star</option>
+    <option value="2">⭐⭐ 2 Star</option>
+    <option value="1">⭐ 1 Star</option>
+  </select>
+
+</div>
     <hr style="border:none;border-top:1px solid #eee;margin:25px 0;">
 
     <div style="
@@ -355,7 +394,28 @@
   script.onload = startGoogleLogin;
   script.onerror = () => alert('Google login library could not be loaded.');
   document.head.appendChild(script);
+function filterReviews() {
+  const searchInput = document.getElementById('reviewSearch');
+  const reviewCard = document.getElementById('demoReviewCard');
+
+  if (!searchInput || !reviewCard) return;
+
+  const searchText = searchInput.value.toLowerCase();
+  const reviewText = reviewCard.innerText.toLowerCase();
+
+  reviewCard.style.display =
+    reviewText.includes(searchText) ? 'block' : 'none';
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.getElementById('reviewSearch');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterReviews);
+  }
+});
+  
+  }
 </script>
 
 </body>
