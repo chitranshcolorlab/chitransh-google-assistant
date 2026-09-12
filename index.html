@@ -393,7 +393,10 @@
   script.defer = true;
   script.onload = startGoogleLogin;
   script.onerror = () => alert('Google login library could not be loaded.');
-  document.head.appendChild(script);
+  
+document.head.appendChild(script);
+}
+
 function filterReviews() {
   const searchInput = document.getElementById('reviewSearch');
   const reviewCard = document.getElementById('demoReviewCard');
@@ -415,7 +418,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
   
-  }
 </script>
 
 </body>
