@@ -399,17 +399,23 @@ document.head.appendChild(script);
 
 function filterReviews() {
   const searchInput = document.getElementById('reviewSearch');
+  const starFilter = document.getElementById('starFilter');
   const reviewCard = document.getElementById('demoReviewCard');
 
-  if (!searchInput || !reviewCard) return;
+  if (!searchInput || !starFilter || !reviewCard) return;
 
   const searchText = searchInput.value.toLowerCase();
   const reviewText = reviewCard.innerText.toLowerCase();
+  const selectedRating = starFilter.value;
+  const reviewRating = reviewCard.dataset.rating;
+
+  const searchMatch = reviewText.includes(searchText);
+  const ratingMatch =
+    selectedRating === 'all' || selectedRating === reviewRating;
 
   reviewCard.style.display =
-    reviewText.includes(searchText) ? 'block' : 'none';
+    searchMatch && ratingMatch ? 'block' : 'none';
 }
-
 document.addEventListener('DOMContentLoaded', function () {
   const searchInput = document.getElementById('reviewSearch');
 
