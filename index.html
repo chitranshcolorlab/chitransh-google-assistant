@@ -309,6 +309,11 @@
         border-radius:10px;
         padding:18px;
       ">
+<select id="replyLanguage" style="padding:9px 12px;border:1px solid #d4dce0;border-radius:7px;margin-right:10px;">
+  <option value="English">English</option>
+  <option value="Hindi">हिंदी</option>
+  <option value="Hinglish">Hinglish</option>
+</select>
         <button onclick="generateAIReply()" style="margin-top:12px;padding:9px 16px;background:#111827;color:white;border:none;border-radius:7px;cursor:pointer;font-weight:bold;">✨ Generate AI Reply</button>
        <p id="aiReplyText" contenteditable="true" style="margin-top:10px;line-height:1.6;color:#444;background:white;border:1px solid #dadce0;border-radius:8px;padding:12px;">
           Thank you so much for your kind words! We are delighted that you
@@ -428,8 +433,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 async function generateAIReply() {
-  const replyBox = document.getElementById('aiReplyText');
-
+  const language = document.getElementById('replyLanguage').value;
+const replyBox = document.getElementById('aiReplyText');
   replyBox.innerText = "Generating AI reply...";
 
   try {
@@ -443,7 +448,8 @@ async function generateAIReply() {
         body: JSON.stringify({
           review: "Excellent photography service. The team was professional and the wedding photos were beautiful.",
           rating: 5,
-          businessName: "Chitransh Color Lab & Studio"
+          businessName: "Chitransh Color Lab & Studio",
+language: language
         })
       }
     );
