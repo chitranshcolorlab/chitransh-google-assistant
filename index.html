@@ -427,12 +427,38 @@ document.addEventListener('DOMContentLoaded', function () {
     starFilter.addEventListener('change', filterReviews);
   }
 });
- function generateAIReply() {
+async function generateAIReply() {
   const replyBox = document.getElementById('aiReplyText');
 
-  replyBox.innerText =
-    "Thank you so much for your wonderful review! We truly appreciate your kind words and are delighted that you enjoyed your experience with us. We look forward to serving you again.";
-} 
+  replyBox.innerText = "Generating AI reply...";
+
+  try {
+    const response = await fetch(
+      "https://royal-sea-db1a.sharadmn29.workers.dev/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          review: "Excellent photography service. The team was professional and the wedding photos were beautiful.",
+          rating: 5,
+          businessName: "Chitransh Color Lab & Studio"
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.reply) {
+      replyBox.innerText = data.reply;
+    } else {
+      replyBox.innerText = "AI reply could not be generated.";
+    }
+  } catch (error) {
+    replyBox.innerText = "Error connecting to AI.";
+  }
+}
   function postDemoReply() {
    
   alert("Demo mode: Reply is ready. It will be posted to Google after API access is approved.");
