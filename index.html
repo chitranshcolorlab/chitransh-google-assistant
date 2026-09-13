@@ -380,6 +380,12 @@
     </div>
 
   </div>
+  <button
+  onclick="copyGooglePost()"
+  style="margin-top:12px;padding:10px 18px;background:#111827;color:white;border:none;border-radius:8px;font-weight:bold;cursor:pointer;"
+>
+  📋 Copy Google Post
+</button>
 </section>
   
   <footer>
@@ -389,6 +395,18 @@
 </footer>
 
 <script>
+function copyGooglePost() {
+  const postText = document.getElementById("googlePostText").innerText.trim();
+
+  if (!postText || postText === "Your generated Google post will appear here.") {
+    alert("पहले Google Post Generate करें।");
+    return;
+  }
+
+  navigator.clipboard.writeText(postText).then(() => {
+    alert("Google Post copied successfully!");
+  });
+}
   function connectGoogle() {
   const startGoogleLogin = () => {
     const tokenClient = google.accounts.oauth2.initTokenClient({
@@ -529,10 +547,10 @@ async function generateGooglePost() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          review: "Create a professional Google Business Profile post about: " + topic,
-          rating: "",
-          businessName: localStorage.getItem("businessName") || "Chitransh Color Lab & Studio",
-          language: language
+          type: "post",
+topic: topic,
+businessName: localStorage.getItem("businessName") || "Chitransh Color Lab & Studio",
+language: language
         })
       }
     );
